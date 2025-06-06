@@ -62,9 +62,9 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => {
     e.preventDefault(); // "e" representa a "submit" evita que el formulario se envie de un solo.
 
     //Capturar los valores del formulario
-    const nombre = document.getElementById("txombre").value.trim();
-    const apellido = document.getElementById("tApellido").value.trim();
-    const correo = document.getElementById("txtail").value.trim();
+    const nombre = document.getElementById("txtNombre").value.trim();
+    const apellido = document.getElementById("txtApellido").value.trim();
+    const correo = document.getElementById("txtEmail").value.trim();
 
     //Validacion basica
     if(!nombre || !apellido || !correo){
@@ -76,7 +76,7 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => {
     const respuesta = await fetch(API_URL, {
         method: "POST", //Tipo de solicitud
         headers: {'Content-Type':'application/json'}, //Tipo de dato enviado
-        body: JSON.stringify({nombre, apeldo, correo}) //Datos enviados
+        body: JSON.stringify({nombre, apellido, correo}) //Datos enviados
     });
 
     //Verificar si la API responde que los datos fueron enviados corectamente
@@ -84,7 +84,7 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => {
         alert("El registro fue agregado correctamente");
 
         //Limpiar el formulario
-        document.getElementById("frmAgrar").reset();
+        document.getElementById("frmAgregar").reset();
 
         //Cerrar el modal (dialog)
         modal.close();
@@ -107,7 +107,7 @@ async function EliminarPersona(id){
     //Validamos su el usuario si escogio borrar
     if(confirmacion){
         await fetch(`${API_URL}/${id}`, {
-            method: "DELEE"
+            method: "DELETE"
         });
 
         //Recargar la tabla despues de eliminar
