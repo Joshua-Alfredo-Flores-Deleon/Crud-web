@@ -41,7 +41,7 @@
               </tr>
             </thead>
             <tbody>
-              <!--Aqui van los registros que virnrn por la API-->
+              <!--Aqui van los registros que vinieron por la API-->
             </tbody>
           </table>
         </div>
@@ -65,6 +65,25 @@
             </form>
         </article>
     </dialog>
+
+    <!--Cuadro de dialogo para editar-->
+    <dialog id="mdEditar">
+      <article>
+          <header>
+              <a href="#" class="close" id="btnCerrarEditar"></a> <!--C para cerrar-->
+              <h3>Modificar Integrante</h3>
+          </header>
+
+          <form id="frmEditar">
+            <input type="hidden" id="txtIdEditar"> <!--Campo oculto para guardar el ID-->
+              <input type="text" id="txtNombreEditar" placeholder="Nombre" required>
+              <input type="text" id="txtApellidoEditar" placeholder="Apellido" required>
+              <input type="email"  id="txtEmailEditar" placeholder="Correo Electronico" required>
+
+              <button type="submit" class="contrast">Actualizar</button>
+          </form>
+      </article>
+  </dialog>
 
       <!--Boton flotante para agregar registros-->
       <button id="btnAgregar" class="add-button">
